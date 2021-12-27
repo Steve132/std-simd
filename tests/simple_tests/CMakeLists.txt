@@ -11,5 +11,17 @@ set_target_properties(alignment_compute PROPERTIES
             CXX_STANDARD 20
             CXX_STANDARD_REQUIRED ON)
 
-		message(WARNING "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 target_include_directories(alignment_compute PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../..")
+
+add_executable(for_n for_n.cpp)
+target_compile_options(for_n PUBLIC
+	"$<$<CONFIG:Release>:-march=native>"
+	"$<$<CONFIG:Debug>:-march=native>"
+	"$<$<CONFIG:RelWithDebInfo>:-march=native>"
+	"$<$<CONFIG:MinSizeRel>:-march=native>"
+)
+set_target_properties(for_n PROPERTIES
+			CXX_STANDARD 20
+			CXX_STANDARD_REQUIRED ON)
+
+target_include_directories(for_n PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../..")

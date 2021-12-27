@@ -22,7 +22,7 @@ int main()
 	uint8v_t hi(&data[0],stdx::__proposed::aligned<3>);
 
 	std::array<float,128> dataf;
-	stdx::native_simd<float> vf(&dataf[0],stdx::__proposed::aligned<3>);
+	//stdx::native_simd<float> vf(&dataf[0],stdx::__proposed::aligned<3>); //This is an unaligned read and throws a static assert
 	return 0;
 }
 
